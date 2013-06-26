@@ -1,4 +1,4 @@
-PongsofGuilt
+Pongs of Guilt
 ============
 
-Pong wit added misery
+Pong with added misery
