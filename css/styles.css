@@ -1,1 +1,14 @@
 /* styles */
+body {
+  background: #666;
+  margin: 0;
+  }
+canvas {
+  background: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -300px 0 0 -400px;
+  outline: solid 1px #999;
+  box-shadow: 0 0 10px #000, 0 0 10px #000, 0 0 10px #000;
+  }
