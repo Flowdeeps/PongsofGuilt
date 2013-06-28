@@ -45,16 +45,18 @@ window.onload = function(){
 
   // behaviour
   var ballBehaviour = function(){
-    if (ballvars.yPos > (canvas.height - 10)) {
-      ballVars.state = 'up';
+    var yPos  = ballVars.yPos;
+    var state = ballVars.state;
+    if (yPos > (canvas.height - 10)) {
+      state = 'up';
     }
-    if ((ballVars.yPos === 10) || (ballVars.yPos < 10)) {
-      ballVars.state = 'down';
+    if ((yPos === 10) || (yPos < 10)) {
+      state = 'down';
     }
     if (ballUp === 'up') {
-      ballVars.yPos = ballVars.yPos + 1;
+      yPos = yPos + 1;
     } else {
-      ballVars.yPos = ballVars.yPos - 1;
+      yPos = yPos - 1;
     }
   };
 
