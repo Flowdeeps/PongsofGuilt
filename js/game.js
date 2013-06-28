@@ -26,7 +26,7 @@ window.onload = function(){
 
   document.body.appendChild(canvas);
 
-  var ball = function(x, y, w){
+  var ballDraw = function(x, y, w){
     ctx = canvas.getContext('2d');
     ctx.beginPath();
     ctx.fillStyle = "rgb(255, 255, 0)";
@@ -34,29 +34,37 @@ window.onload = function(){
     ctx.fill();
   };
 
+  var ballVars = {
+    ballI     : 1,
+    ballspeed : 10,
+    yPos      : 10,
+    xPos      : 390,
+    size      : 20,
+    state     : 'up'
+  };
+
+  // behaviour
+  var ballBehaviour = function(){
+    if (ballvars.yPos > (canvas.height - 10)) {
+      ballVars.state = 'up';
+    }
+    if ((ballVars.yPos === 10) || (ballVars.yPos < 10)) {
+      ballVars.state = 'down';
+    }
+    if (ballUp === 'up') {
+      ballVars.yPos = ballVars.yPos + 1;
+    } else {
+      ballVars.yPos = ballVars.yPos - 1;
+    }
+  };
+
   var fps = 60;
-  var speed = 10;
-  var yPos = 10;
-  var xPos = 1;
-  var ballUp = true;
   function animate() {
     setTimeout(function() {
-      requestAnimationFrame(animate);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      requestAnimationFrame(animate);
       // Drawing code goes here
-      if (yPos > (canvas.height - 10)) {
-        ballUp = false;
-      }
-      if ((yPos === 10) || (yPos < 10)) {
-        ballUp = true;
-      }
-      if (ballUp === true) {
-        yPos = yPos + 1;
-      } else {
-        yPos = yPos - 1;
-      }
-      ball(390, yPos, 20);
-      console.log(yPos);
+      ballDraw(ballVars.xPos, ballVars.yPos, ballVars.size);
     }, 1000 / fps);
   }
 
