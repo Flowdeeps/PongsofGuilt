@@ -26,6 +26,16 @@ window.onload = function(){
 
   document.body.appendChild(canvas);
 
+  // variables
+  var ballVars = {
+    yPos      : 10,
+    xPos      : 390,
+    ballspeed : 10,
+    size      : 20,
+    state     : 'down'
+  };
+
+  // canvas elements
   var ballDraw = function(x, y, w){
     ctx = canvas.getContext('2d');
     ctx.beginPath();
@@ -34,29 +44,21 @@ window.onload = function(){
     ctx.fill();
   };
 
-  var ballVars = {
-    ballI     : 1,
-    ballspeed : 10,
-    yPos      : 10,
-    xPos      : 390,
-    size      : 20,
-    state     : 'up'
-  };
-
-  // behaviour
+  // behaviours
+  var i = ballVars.yPos;
   var ballBehaviour = function(){
-    var yPos  = ballVars.yPos;
-    var state = ballVars.state;
-    if (yPos > (canvas.height - 10)) {
-      state = 'up';
+    i                   = i + 1;
+    var state           = ballVars.state;
+    if (ballVars.yPos > (canvas.height - 10)) {
+      ballVars.state    = 'down';
     }
-    if ((yPos === 10) || (yPos < 10)) {
-      state = 'down';
+    if ((ballVars.yPos === 10) || (ballVars.yPos < 10)) {
+      ballVars.state    = 'up';
     }
-    if (ballUp === 'up') {
-      yPos = yPos + 1;
+    if (state === 'up') {
+      ballVars.yPos     = ballVars.yPos + 1;
     } else {
-      yPos = yPos - 1;
+      ballVars.yPos     = ballVars.yPos - 1;
     }
   };
 
@@ -67,6 +69,8 @@ window.onload = function(){
       requestAnimationFrame(animate);
       // Drawing code goes here
       ballDraw(ballVars.xPos, ballVars.yPos, ballVars.size);
+      // run behaviours
+      ballBehaviour();
     }, 1000 / fps);
   }
 
