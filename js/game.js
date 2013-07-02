@@ -30,10 +30,11 @@ window.onload = function(){
   var ballVars = {
     yPos      : 10,
     xPos      : 390,
-    speed     : 4,
-    size      : 20,
+    vSpeed     : 10,
+    hSpeed     : 5,
     vState     : 'down',
-    hState     : 'left'
+    hState     : 'left',
+    size      : 20
   };
 
   // canvas elements
@@ -57,9 +58,9 @@ window.onload = function(){
       ballVars.vState    = 'up';
     }
     if (vState === 'up') {
-      ballVars.yPos     = ballVars.yPos + (1 * ballVars.speed);
+      ballVars.yPos     = ballVars.yPos + (1 * ballVars.vSpeed);
     } else {
-      ballVars.yPos     = ballVars.yPos - (1 * ballVars.speed);
+      ballVars.yPos     = ballVars.yPos - (1 * ballVars.vSpeed);
     }
     // horizontal logic
     if (ballVars.xPos > (canvas.width - 10)) {
@@ -69,9 +70,9 @@ window.onload = function(){
       ballVars.hState    = 'right';
     }
     if (hState === 'right') {
-      ballVars.xPos     = ballVars.xPos + (1 * ballVars.speed);
+      ballVars.xPos     = ballVars.xPos + (1 * ballVars.hSpeed);
     } else {
-      ballVars.xPos     = ballVars.xPos - (1 * ballVars.speed);
+      ballVars.xPos     = ballVars.xPos - (1 * ballVars.hSpeed);
     }
   };
 
