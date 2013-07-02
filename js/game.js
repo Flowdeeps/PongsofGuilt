@@ -30,20 +30,20 @@ window.onload = function(){
   var ballVars = {
     yPos      : 0,
     xPos      : 0,
-    vSpeed     : 5,
-    hSpeed     : 5,
-    vState     : 'down',
-    hState     : 'left',
+    vVel      : 5,
+    hVel      : 5,
+    vState    : 'down',
+    hState    : 'left',
     size      : 10
   };
 
   // randomise the start pos
   ballVars.yPos = randomizr(ballVars.size, canvas.height - ballVars.size);
   ballVars.xPos = randomizr(ballVars.size, canvas.width - ballVars.size);
-  // randomise speed
-  var randSpeed = function(){
-    ballVars.vSpeed = randomizr(1, 10);
-    ballVars.hSpeed = randomizr(1, 10);
+  // randomise Vel
+  var randVel = function(){
+    // ballVars.vVel = randomizr(1, 10);
+    // ballVars.hVel = randomizr(1, 10);
   };
 
   function randomizr(floor, input){
@@ -67,30 +67,30 @@ window.onload = function(){
     // vertical logic
     if (ballVars.yPos > (canvas.height - (ballVars.size / 2))) {
       ballVars.vState    = 'up';
-      randSpeed();
+      randVel();
     }
     if ((ballVars.yPos === (ballVars.size / 2)) || (ballVars.yPos < (ballVars.size / 2))) {
       ballVars.vState    = 'down';
-      randSpeed();
+      randVel();
     }
     if (vState === 'up') {
-      ballVars.yPos     = ballVars.yPos - (1 * ballVars.vSpeed);
+      ballVars.yPos     = ballVars.yPos - (1 * ballVars.vVel);
     } else {
-      ballVars.yPos     = ballVars.yPos + (1 * ballVars.vSpeed);
+      ballVars.yPos     = ballVars.yPos + (1 * ballVars.vVel);
     }
     // horizontal logic
     if (ballVars.xPos > (canvas.width - (ballVars.size / 2))) {
       ballVars.hState    = 'left';
-      randSpeed();
+      randVel();
     }
     if ((ballVars.xPos === (ballVars.size / 2)) || (ballVars.xPos < (ballVars.size / 2))) {
       ballVars.hState    = 'right';
-      randSpeed();
+      randVel();
     }
     if (hState === 'right') {
-      ballVars.xPos     = ballVars.xPos + (1 * ballVars.hSpeed);
+      ballVars.xPos     = ballVars.xPos + (1 * ballVars.hVel);
     } else {
-      ballVars.xPos     = ballVars.xPos - (1 * ballVars.hSpeed);
+      ballVars.xPos     = ballVars.xPos - (1 * ballVars.hVel);
     }
   };
 
