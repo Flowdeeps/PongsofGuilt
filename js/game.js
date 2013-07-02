@@ -55,7 +55,7 @@ window.onload = function(){
   var ballDraw = function(x, y, w){
     ctx = canvas.getContext('2d');
     ctx.beginPath();
-    ctx.fillStyle = "rgb(255, 255, 0)";
+    ctx.fillStyle = "rgb(255, 255, 255)";
     ctx.arc(x, y, w/2, 0, 2 * Math.PI, false);
     ctx.fill();
   };
