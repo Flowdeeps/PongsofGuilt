@@ -66,17 +66,17 @@ window.onload = function(){
     var hState           = ballVars.hState;
     // vertical logic
     if (ballVars.yPos > (canvas.height - (ballVars.size / 2))) {
-      ballVars.vState    = 'down';
-      randSpeed();
-    }
-    if ((ballVars.yPos === (ballVars.size / 2)) || (ballVars.yPos < (ballVars.size / 2))) {
       ballVars.vState    = 'up';
       randSpeed();
     }
+    if ((ballVars.yPos === (ballVars.size / 2)) || (ballVars.yPos < (ballVars.size / 2))) {
+      ballVars.vState    = 'down';
+      randSpeed();
+    }
     if (vState === 'up') {
-      ballVars.yPos     = ballVars.yPos + (1 * ballVars.vSpeed);
-    } else {
       ballVars.yPos     = ballVars.yPos - (1 * ballVars.vSpeed);
+    } else {
+      ballVars.yPos     = ballVars.yPos + (1 * ballVars.vSpeed);
     }
     // horizontal logic
     if (ballVars.xPos > (canvas.width - (ballVars.size / 2))) {
