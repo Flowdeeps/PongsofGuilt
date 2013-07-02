@@ -32,7 +32,8 @@ window.onload = function(){
     xPos      : 390,
     speed     : 4,
     size      : 20,
-    state     : 'down'
+    vState     : 'down',
+    hState     : 'left'
   };
 
   // canvas elements
@@ -46,17 +47,31 @@ window.onload = function(){
 
   // behaviours
   var ballBehaviour = function(){
-    var state           = ballVars.state;
+    var vState           = ballVars.vState;
+    var hState           = ballVars.hState;
+    // vertical logic
     if (ballVars.yPos > (canvas.height - 10)) {
-      ballVars.state    = 'down';
+      ballVars.vState    = 'down';
     }
     if ((ballVars.yPos === 10) || (ballVars.yPos < 10)) {
-      ballVars.state    = 'up';
+      ballVars.vState    = 'up';
     }
-    if (state === 'up') {
+    if (vState === 'up') {
       ballVars.yPos     = ballVars.yPos + (1 * ballVars.speed);
     } else {
       ballVars.yPos     = ballVars.yPos - (1 * ballVars.speed);
+    }
+    // horizontal logic
+    if (ballVars.xPos > (canvas.width - 10)) {
+      ballVars.hState    = 'left';
+    }
+    if ((ballVars.xPos === 10) || (ballVars.xPos < 10)) {
+      ballVars.hState    = 'right';
+    }
+    if (hState === 'right') {
+      ballVars.xPos     = ballVars.xPos + (1 * ballVars.speed);
+    } else {
+      ballVars.xPos     = ballVars.xPos - (1 * ballVars.speed);
     }
   };
 
