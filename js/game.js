@@ -30,7 +30,7 @@ window.onload = function(){
   var ballVars = {
     yPos      : 10,
     xPos      : 390,
-    ballspeed : 10,
+    speed     : 4,
     size      : 20,
     state     : 'down'
   };
@@ -45,9 +45,7 @@ window.onload = function(){
   };
 
   // behaviours
-  var i = ballVars.yPos;
   var ballBehaviour = function(){
-    i                   = i + 1;
     var state           = ballVars.state;
     if (ballVars.yPos > (canvas.height - 10)) {
       ballVars.state    = 'down';
@@ -56,9 +54,9 @@ window.onload = function(){
       ballVars.state    = 'up';
     }
     if (state === 'up') {
-      ballVars.yPos     = ballVars.yPos + 1;
+      ballVars.yPos     = ballVars.yPos + (1 * ballVars.speed);
     } else {
-      ballVars.yPos     = ballVars.yPos - 1;
+      ballVars.yPos     = ballVars.yPos - (1 * ballVars.speed);
     }
   };
 
