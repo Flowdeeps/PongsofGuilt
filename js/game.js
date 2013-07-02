@@ -42,8 +42,8 @@ window.onload = function(){
   ballVars.xPos = randomizr(ballVars.size, canvas.width - ballVars.size);
   // randomise speed
   var randSpeed = function(){
-    ballVars.vSpeed = randomizr(1, 30);
-    ballVars.hSpeed = randomizr(1, 30);
+    ballVars.vSpeed = randomizr(1, 10);
+    ballVars.hSpeed = randomizr(1, 10);
   };
 
   function randomizr(floor, input){
