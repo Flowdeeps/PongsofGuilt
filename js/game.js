@@ -30,11 +30,11 @@ window.onload = function(){
   var ballVars = {
     yPos      : 0,
     xPos      : 0,
-    vSpeed     : 30,
-    hSpeed     : 30,
+    vSpeed     : 5,
+    hSpeed     : 5,
     vState     : 'down',
     hState     : 'left',
-    size      : 20
+    size      : 10
   };
 
   // randomise the start pos
